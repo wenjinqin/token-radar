@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="brand">
+    <span class="blip" aria-hidden="true"></span>
+    <div>
+      <h1>Token Launch Radar</h1>
+      <p class="tagline">Protocols that record no token yet, ranked by what a launch would be worth if the market priced them like their listed peers.</p>
+    </div>
+  </div>
+  <dl class="stats" id="stats"></dl>
+</header>
+
+<section class="model-note" id="model-note"></section>
+
+<nav class="toolbar" aria-label="Board controls">
+  <label class="field grow">Search
+    <input id="q" type="search" placeholder="Name or slug…" autocomplete="off">
+  </label>
+  <label class="field">Category
+    <select id="cat"><option value="">All categories</option></select>
+  </label>
+  <label class="field">Chain
+    <select id="chain"><option value="">All chains</option></select>
+  </label>
+  <label class="field">Sort
+    <select id="sort">
+      <option value="rank">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7d growth</option>
+      <option value="age">Age (tokenless days)</option>
+      <option value="multiple">Peer multiple</option>
+    </select>
+  </label>
+  <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+  <button id="aside-toggle" type="button">Set aside: already trading &amp; products</button>
+</nav>
+
+<p class="count" id="count"></p>
+
+<section id="detail" hidden></section>
+
+<main>
+  <table id="board">
+    <thead>
+      <tr>
+        <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+        <th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th>
+        <th class="num">Peer ×</th><th class="num">Implied value</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+
+<section id="aside" hidden>
+  <h2>Set aside — not launches this radar ranks</h2>
+  <p class="aside-note">Tokens that already trade are valued by the market, not by this model; wrapped, staked and bridged products belong to a token that already exists; exchanges are companies, not launches. They are listed here so the board's coverage can be checked, and none of them takes a rank.</p>
+  <table id="aside-table">
+    <thead><tr><th>Protocol</th><th>Category</th><th class="num">TVL</th><th class="num">Market cap</th><th>Why set aside</th></tr></thead>
+    <tbody id="aside-rows"></tbody>
+  </table>
+</section>
+
+<footer>
+  <p id="foot"></p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
